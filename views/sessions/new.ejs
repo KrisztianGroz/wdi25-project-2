@@ -1,14 +1,58 @@
-<h1>Login</h1>
-
-<form method="POST" action="/login">
+<form method="POST" action="/sessions">
+  <input type="hidden" name="lat">
+  <input type="hidden" name="lng">
   <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" required>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
   </div>
   <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
+    <label for="category">Category</label>
+    <select name="category" id="category">
+      <option value="dance">Dance</option>
+      <option value="yoga">Yoga</option>
+      <option value="kungfu">Kung Fu</option>
+    </select>
+  </div>
+  <fieldset>
+    <legend>Address</legend>
+    <div>
+      <label for="fullAddress">Full Address</label>
+      <input type="text" name="address[fullAddress]" id="fullAddress" class="autocomplete">
+    </div>
+    <div>
+      <label for="street">Street</label>
+      <input type="text" name="address[street]" id="street">
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input type="text" name="address[city]" id="city">
+    </div>
+    <div>
+      <label for="postcode">Postcode</label>
+      <input type="text" name="address[postcode]" id="postcode">
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input type="text" name="address[country]" id="country">
+      <input type="text" name="address[lat]" id="lat">
+      <input type="text" name="address[lng]" id="lng">
+      <input type="text" name="address[full]" id="address">
+    </div>
+  </fieldset>
+  <div>
+    <label for="stars">Stars</label>
+    <input type="number" name="stars" id="stars">
+  </div>
+  <div>
+    <label for="image">Image</label>
+    <input type="text" name="image" id="image">
   </div>
 
-  <button class="button">Login</button>
+
+
+  <button class="button">Register</button>
+
+  <div id="map">Map</div>
+
+
 </form>

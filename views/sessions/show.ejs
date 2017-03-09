@@ -1,0 +1,46 @@
+<div>
+  <img src="<%= session.image %>" alt="<%= session.name %>">
+  <h2><%= session.name %></h2>
+  <p>
+    <%= session.address.fullAddress %><br>
+    <% if(session.address.street) { %><%= session.address.street %><br><% } %>
+    <%= session.address.city %><br>
+    <%= session.address.postcode %><br>
+    <%= session.address.country %>
+    <%= session.address.lat %>
+    <%= session.address.lng %>
+  </p>
+
+  <p>
+    <% while(session.stars--) { %> &hearts; <% } %>
+  </p>
+
+  <section>
+    <h4>Comments</h4>
+    <% session.comments.forEach((comment) => { %>
+      <p><%= comment.content %></p>
+      <small><%= comment.createdBy.username %></small>
+      <% if(locals.isAuthenticated && comment.ownedBy(user)) {%>
+
+
+
+      <form method="POST" action="/sessions/<%= session.id %>/comments/<%= comment.id %>">
+        <input type="button" name="_method" value="DELETE">
+        <button>Delete</button>
+      </form>
+      <% } %>
+      <% }) %>
+
+
+  </section>
+
+  <% if(locals.isAuthenticated) { %>
+    <section>
+      <h4>Leave a comment</h4>
+      <form method="POST" action="/sessions/<%= session.id %>/comments">
+        <textarea name="content" id="content" placeholder="Comment"></textarea>
+        <button session="button">Leave a comment</button>
+      </form>
+    </section>
+  <% } %>
+</div>

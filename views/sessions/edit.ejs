@@ -1,0 +1,54 @@
+<h1>Edit <%= session.name %> Club</h1>
+
+<form method="POST" action="/sessions/<%= session.id %>">
+  <input type="hidden" name="_method" value="PUT">
+
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="<%= session.name %>">
+  </div>
+  <div>
+    <label for="category">Category</label>
+    <select name="category" id="category" value="<%= session.category %>">
+      <option value="dance">Dance</option>
+      <option value="yoga">Yoga</option>
+      <option value="kungfu">Kung Fu</option>
+    </select>
+  </div>
+  <fieldset>
+    <legend>Address</legend>
+    <div>
+      <label for="line1">Line 1</label>
+      <input type="text" name="address[line1]" id="line1" value="<%= session.address.line1 %>">
+    </div>
+    <div>
+      <label for="line2">Line 2</label>
+      <input type="text" name="address[line2]" id="line2" value="<%= session.address.line2 %>">
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input type="text" name="address[city]" id="city" value="<%= session.address.city %>">
+    </div>
+    <div>
+      <label for="postcode">Postcode</label>
+      <input type="text" name="address[postcode]" id="postcode" value="<%= session.address.postcode %>" >
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <input type="text" name="address[country]" id="country" value="<%= session.address.country %>">
+    </div>
+  </fieldset>
+  <div>
+    <label for="stars">Stars</label>
+    <input type="number" name="stars" id="stars" value="<%= session.stars %>">
+  </div>
+  <div>
+    <label for="image">Image</label>
+    <input type="text" name="image" id="image" value="<%= session.image %>">
+  </div>
+
+  <button session="button">Register</button>
+
+
+  <button session="btn btn-primary">Add</button>
+</form>

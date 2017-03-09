@@ -1,0 +1,20 @@
+<% sessions.forEach((session) => { %>
+  <div>
+    <a href="/sessions/<%= session.id %>">
+      <img src="<%= session.image %>" alt="<%= session.name %>">
+      <h2><%= session.name %></h2>
+      <p><%= session.category %></p>
+      <p>
+        <%= session.address.fullAddress %><br>
+        <% if(session.address.street) { %><%= session.address.street %><br><% } %>
+        <%= session.address.city %><br>
+        <%= session.address.postcode %><br>
+        <%= session.address.country %>
+      </p>
+
+      <p>
+        <% while(session.stars--) { %> &star; <% } %>
+      </p>
+    </a>
+  </div>
+<% }) %>

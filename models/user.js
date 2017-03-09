@@ -4,7 +4,8 @@ const userSchema = new mongoose.Schema({
 
   username: { type: String },
   email: { type: String },
-  password: { type: String , require: true }
+  password: { type: String , require: true },
+  image: { type: String }
 });
 userSchema
   .virtual('passwordConfirmation')
@@ -14,13 +15,16 @@ userSchema
   });
 
   //lyfstyle hook
-  userSchema.pre('validate', function checkPassword(next) {
-    if(!this.password && !this.githubId) {
-      this.invalidate('password', 'required');
-    }
-    if(this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
-    next();
-  });
+userSchema.pre('validate', function checkPassword(next) {
+  if(!this.password && !this.githubId) {
+    this.invalidate('password', 'required');
+  }
+
+
+
+  if(this.isModified('password') && this._passwordConfirmation !== this.password) this.invalidate('passwordConfirmation', 'does not match');
+  next();
+});
 
 
 
@@ -35,6 +39,9 @@ userSchema.pre('validate', function checkPassword(next) {
 
 });
 
+
+
+
 userSchema.pre('save', function hashPassword(next) {
   if(this.isModified('password')) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
@@ -42,10 +49,18 @@ userSchema.pre('save', function hashPassword(next) {
   }
   next();
 
+
+
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+
+
+
+
+
 
 module.exports = mongoose.model('User', userSchema);
