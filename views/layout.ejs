@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
+
     <title>project-2</title>
     <link rel="stylesheet" href="/css/style.css">
     <script async defer
@@ -33,41 +33,49 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions">Sessions</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/profil">Profile</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/search">Search</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions/new">Add a session</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="/login">Login</a>
-      </li>
+      <% if(locals.isAuthenticated) { %>
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sessions">Sessions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sessions/new">Add a session</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+          <% } else { %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sessions">Sessions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/search">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/login">Login</a>
+            </li>
+      <% } %>
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET" action="/sessions">
-      <input class="form-control mr-sm-2" type="text" name="category" selection="kungfu"  placeholder="kungfu yoga" options="kungfu">
+      <input class="form-control mr-sm-2" type="text" name="category" selection="kungfu"  placeholder="search" options="kungfu">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     </div>
     </nav>
-
-
-
     <% for(const type in messages) { %>
       <div class="<%= type %>">
         <h5><%= messages[type] %></h5>

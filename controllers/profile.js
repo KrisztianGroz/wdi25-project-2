@@ -8,7 +8,7 @@ function showProfile(req, res, next ) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-      return res.render('profil/show', { user });
+      return res.render('profile/show', { user });
     })
     .catch(next);
 }

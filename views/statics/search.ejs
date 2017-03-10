@@ -1,12 +1,14 @@
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
 <form class="form-inline my-2 my-lg-0" method="GET" action="/sessions">
   <select name="category" id="category">
     <option value="" disabled selected>Please choose</option>
     <option value="dance">Dance</option>
     <option value="yoga">Yoga</option>
     <option value="kungfu">Kung Fu</option>
-  </select>
+  </select><br>
 
   <select name="stars" id="stars">
     <option value="" disabled selected>Please choose</option>
@@ -15,17 +17,15 @@
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
-  </select>
+  </select><br>
 
   <select name="address.city" id="category">
     <option value="" disabled selected>Please choose</option>
     <option value="London">London</option>
     <option value="Manchester">Manchester</option>
     <option value="Brighton">Brighton</option>
-  </select>
+  </select><br>
+
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-
+  </div>
 </form>
-
-<div id="map"> Map</div>

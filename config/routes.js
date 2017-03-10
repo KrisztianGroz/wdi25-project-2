@@ -2,7 +2,7 @@ const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const search = require('../controllers/search');
-const profile = require('../controllers/profil');
+const profile = require('../controllers/profile');
 const login = require('../controllers/login');
 const secureRoute = require('../lib/secureRoute');
 
@@ -33,6 +33,9 @@ router.route('/login')
   .get(login.new)
   .post(login.create);
 
+router.route('/logout')
+    .get(login.delete);
+
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
@@ -40,7 +43,7 @@ router.route('/register')
 router.route('/search')
     .get(search.main);
 
-router.route('/profil')
+router.route('/profile')
     .get(profile.profs);
 
 

@@ -10,7 +10,6 @@
     <%= session.address.lat %>
     <%= session.address.lng %>
   </p>
-
   <p>
     <% while(session.stars--) { %> &hearts; <% } %>
   </p>
@@ -21,17 +20,12 @@
       <p><%= comment.content %></p>
       <small><%= comment.createdBy.username %></small>
       <% if(locals.isAuthenticated && comment.ownedBy(user)) {%>
-
-
-
       <form method="POST" action="/sessions/<%= session.id %>/comments/<%= comment.id %>">
-        <input type="button" name="_method" value="DELETE">
+        <input type="hidden" name="_method" value="DELETE">
         <button>Delete</button>
       </form>
       <% } %>
       <% }) %>
-
-
   </section>
 
   <% if(locals.isAuthenticated) { %>
@@ -44,3 +38,4 @@
     </section>
   <% } %>
 </div>
+<div  id="map"  class="map2"> Mapp</div>

@@ -1,25 +1,28 @@
-<form method="POST" action="/register">
-  <div>
+<form id="register" method="POST" action="/register">
+  <div class="row">
+    <div class="col-md-1">
+      <div  class="form-group">
+      <h1 class="display-6">Register</h1> <br>
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
-  </div>
-  <div>
+  </div> <br>
+  <div >
     <label for="email">Email</label>
     <input type="email" name="email" id="email">
-  </div>
+  </div><br>
   <div>
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
-  </div>
+  </div><br>
   <div>
     <label for="passwordConfirmation">Password Confirmation</label>
     <input type="password" name="passwordConfirmation" id="passwordConfirmation">
-  </div>
-
-  <div>
+  </div><br>
+  <div class="col-md-1">
     <label for="image">Image</label>
     <input type="text" name="image" id="image">
-  </div>
-
-  <button>Register</button>
+  </div><br>
+  <button id="registerBtn"></button>
+</div>
+</div>
 </form>

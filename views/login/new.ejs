@@ -1,14 +1,18 @@
-<h1>Login</h1>
+<div id="LoginPage"class="container">
+  <div class="row">
+    <div class="col-md-4">
+<h1 class="display-4">Log in</h1>
+<div id = "loginform" class="form-group">
+<form method="POST" action="/login" class= "login">
+<div class="form-group">
+<label for="email">Email</label>
+<input class="form-control" type="text" name="email" id="email">
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<input class="form-control" type="password" name="password" id="password" >
+</div>
+</div>
 
-<form method="POST" action="/login">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" required>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-  </div>
-
-  <button class="button">Login</button>
+<button id="logInBtn"></button>
 </form>

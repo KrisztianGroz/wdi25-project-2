@@ -8,8 +8,9 @@ const commentSchema = new mongoose.Schema({
 });
 
 
-commentSchema.methods.ownedBy =function ownedBy(user) {
-  return this.createdBy.id === user.id;
+commentSchema.methods.ownedBy = function commentBelongsTo(user) {
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
+  return user.id === this.createdBy.toString();
 };
 
 

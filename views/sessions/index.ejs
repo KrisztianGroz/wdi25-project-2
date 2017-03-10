@@ -1,9 +1,11 @@
+<div id="mapData" data-sessions="<%=JSON.stringify(sessions) %>"> </div>
+<div id="map"> Mapp</div>
 <% sessions.forEach((session) => { %>
-  <div>
-    <a href="/sessions/<%= session.id %>">
+  <div id="showAll">
       <img src="<%= session.image %>" alt="<%= session.name %>">
       <h2><%= session.name %></h2>
       <p><%= session.category %></p>
+      <a href="/sessions/<%= session.id %>">
       <p>
         <%= session.address.fullAddress %><br>
         <% if(session.address.street) { %><%= session.address.street %><br><% } %>
@@ -11,10 +13,10 @@
         <%= session.address.postcode %><br>
         <%= session.address.country %>
       </p>
-
-      <p>
-        <% while(session.stars--) { %> &star; <% } %>
+      </a>
+      <p id="hearts">
+        <% while(session.stars--) { %> &#9996; <% } %>
       </p>
-    </a>
   </div>
+  <br>
 <% }) %>
